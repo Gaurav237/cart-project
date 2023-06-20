@@ -1,18 +1,18 @@
 import React from "react";
 
-const Navbar = () => {
-
-    return (
-        <div style={styles.nav}>
-            <div style={styles.header}>
-                <h1>CART</h1>
-            </div>
-            <div style={styles.cartIconContainer} >
-                <img style={styles.cartIcon} alt="cart-icon" src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" />
-                <span style={styles.cartCount} >3</span>
-            </div>
-        </div>
-    );
+const Navbar = (props) => {
+  
+  return (
+      <div style={styles.nav}>
+          <div style={styles.header}>
+              <h1>CART</h1>
+          </div>
+          <div style={styles.cartIconContainer} >
+              <img style={styles.cartIcon} alt="cart-icon" src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" />
+              <span style={styles.cartCount} >{props.count}</span>
+          </div>
+      </div>
+  );
 }
 
 const styles = {
@@ -33,7 +33,8 @@ const styles = {
       alignItems: 'center'
     },
     cartIconContainer: {
-      position: 'relative'
+      position: 'relative',
+      marginRight: 20
     },
     cartCount: {
       background: 'yellow',
