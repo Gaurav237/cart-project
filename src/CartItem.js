@@ -1,16 +1,6 @@
 import React from 'react';
 
 class CartItem extends React.Component {
-    // state is added to store local data about the component
-    constructor() {
-        super();
-        this.state= {
-            price: 999,
-            title: 'Phone',
-            qty: 1,
-            img: ''
-        }
-    }
 
     increaseQuantity = () => {
         this.setState( (prevState) => {
@@ -31,11 +21,11 @@ class CartItem extends React.Component {
     }
 
     render() {
-        const { price, title, qty } = this.state;
+        const { price, title, qty, img } = this.props.product;
         return (
             <div className='cart-item'>
                 <div className='left-block'>
-                    <img style={styles.image} alt='' />
+                    <img style={styles.image} alt='' src={img} />
                 </div>
                 <div className='right-block'>
                     <div>
