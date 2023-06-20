@@ -12,19 +12,22 @@ class CartItem extends React.Component {
         }
     }
 
-    // use arrow functions for binding
     increaseQuantity = () => {
-        // setState form 1 => if prevState is not required
-        // this.setState({
-        //     qty: this.state.qty + 1
-        // });
-
-        // setState form 2 => if prevState is required
         this.setState( (prevState) => {
             return {
                 qty: prevState.qty + 1
             } 
         });
+    }
+
+    decreaseQuantity = () => {
+        if(this.state.qty > 1){
+            this.setState( (prevState) => {
+                return {
+                    qty: prevState.qty - 1
+                }
+            });
+        }
     }
 
     render() {
@@ -52,6 +55,7 @@ class CartItem extends React.Component {
                         className='action-icons' 
                         src='https://cdn-icons-png.flaticon.com/512/992/992683.png' 
                         alt='decrease' 
+                        onClick={this.decreaseQuantity}
                         />
                         <img 
                         className='action-icons' 
