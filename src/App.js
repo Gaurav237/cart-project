@@ -28,7 +28,48 @@ class App extends React.Component {
                   title: 'Watch',
                   qty: 1,
                   img: 'https://cdn.shopify.com/s/files/1/0057/8938/4802/products/black_bdca4987-8550-461d-bb37-b1bae02009b4_600x.png?v=1685530794'
-              }
+              },{
+                id: 4,
+                price: 49,
+                title: "Headphones",
+                qty: 1,
+                img: "https://m.media-amazon.com/images/I/811RreTN3rL.jpg"
+              },
+              {
+                "id": 5,
+                "price": 299,
+                "title": "Smart Speaker",
+                "qty": 1,
+                "img": "https://www.apple.com/newsroom/images/product/homepod/standard/Apple_homepod-mini-white-10132020.jpg.landing-big_2x.jpg"
+              },
+              {
+                "id": 6,
+                "price": 399,
+                "title": "Camera",
+                "qty": 1,
+                "img": "https://m.media-amazon.com/images/I/914hFeTU2-L._AC_UF1000,1000_QL80_.jpg"
+              },
+              {
+                "id": 7,
+                "price": 29,
+                "title": "Wireless Mouse",
+                "qty": 1,
+                "img": "https://m.media-amazon.com/images/I/71fybw1BEZL.jpg"
+              },
+              {
+                "id": 8,
+                "price": 1499,
+                "title": "Gaming Console",
+                "qty": 1,
+                "img": "https://m.media-amazon.com/images/I/51n+n+8AXZL._AC_UF1000,1000_QL80_.jpg"
+              },
+              {
+                "id": 9,
+                "price": 79,
+                "title": "External Hard Drive",
+                "qty": 1,
+                "img": "https://5.imimg.com/data5/DO/AG/MY-49489529/external-hard-disk-500x500.jpg"
+              },
           ]
           
       }
@@ -79,6 +120,17 @@ class App extends React.Component {
       return count;
     }
 
+    getCartTotal = () => {
+      const { products } = this.state;
+
+      let cartTotal = 0;
+      products.forEach((product) => {
+        cartTotal += product.qty * product.price;
+      })
+
+      return cartTotal;
+    }
+
     render () {
       const { products } = this.state;
 
@@ -93,6 +145,11 @@ class App extends React.Component {
           onDecreaseQuantity={this.handleDecreaseQuantity}
           onDeleteProduct={this.handleDeleteProduct}
           />
+          <div className="footer">
+            <h2>
+              Total Amount : $ {this.getCartTotal()}
+            </h2>
+          </div>
         </div>
       );
     }

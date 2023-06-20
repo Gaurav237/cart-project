@@ -46,6 +46,7 @@ const styles = {
         height: 110,
         width: 110,
         borderRadius: 4,
+        marginTop: 7
     }
 }
 
